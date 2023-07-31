@@ -1,0 +1,42 @@
+Games
+Group 7:
+	Noah Kahan -- Projectile, Player, GUI design, Timer, general debugging and code improvements
+	Nicholas Whitely -- Zombie, Powerup
+	Louie Wang -- GUI design (reset button, lives/scores update)
+
+Our game simulates the traditional "Space invaders" game with some modifications. The game starts with a frozen screen with 
+three buttons: start, pause, and reset. By pressing the start button in the center of screen, the game starts with a set number 
+of zombies coming from top of the screen. The user then controls the sprite character to move horizontally and tries to shoot all zombies. 
+To move the character horizontally, the user can use either the 'a'/'d' keys or the left/right arrow keys. To shoot the projectiles the
+user can either hold down or press the spacebar repeatedly. To activate the powerups when picked up, a prompt will be shown for the user
+to press the 'e' key as anytime before a powerup is obtained the key will not have any interactions. 
+
+The winning condition is when the user successfully shoot all zombies before they reach to the bottom or hit the sprite, i.e., 
+kill all zombies before the lives run up. When the user wins, a message will pop up the screen and the user can reset the game 
+and restart. The losing condition is when the sprite's life has been ran out before killing all the zombies. Then there'll be 
+a message displaying as well and the user has to restart the game. 
+
+-MenuButton describes the start button shown on screen every time before the game starts. Pauses all functionality of game until it is clicked. 
+
+-PauseButton makes a functional button that can both pause and resume the game. When clicked to pause, the screen will freeze and
+a "PAUSED" message will be displayed. By hitting it again, the game will resume and the message will disappear. 
+
+-Player class describes the basic functionalities of the sprite character, including firing bullets/projectiles, moving across the bottom 
+of the screen, and interactions with powerups. 
+
+-Powerup class enables the user to collect power-up weapons (currently, Mac-10) when the sprite shoots a zombie. Successfully collecting a 
+power-up will result in a temporary speed-up in firing the bullets/projectiles. 
+
+-ResetButton enables the reset button displayed beneath the pause button to reset the game once being clicked. When the game is reset, screen will 
+be cleared and the player sprite will be positioned to its original place. The screen will also re-display the start button in the center.
+
+-Timer is a class that determines the time interval for firing power-ups. And it also restricts the user to fire a limited number of 
+bullets in a time interval. 
+
+-Zombie class animates the zombie movements and interactions with projectiles. 
+
+Overall the project gives what we were expecting, with a number of caveats that we'd like to improve on over the final project. Some of the challenges we
+experienced were the boolean conditions between each clickable buttons and how their status may affect the user interactions. The original implementations
+of the zombies in the game had extremely buggy interactions with the way they dropped powerups and how they interacted with the score/lives of the user. Getting
+the powerup timer to properly execute based on the user pressing 'E' took some time as the timer must be paused and then resumed when the user pressed the key to
+get the proper increase then decreased in firing capabilities.  
